@@ -2,14 +2,27 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 import mysql.connector as db
 from django.contrib import messages
-
+mydb=db.connect(host='localhost',user='admin',password='6062')
+cursor=mydb.cursor()
 curr_user=None
-data={'isUser':0,'loc':['pune','mumbai','japan','wano','kuri','goa']}
+loc=[] 
+cursor.execute('use test;')
+cursor.execute('select station_name from Intercity_project.stations;')
+for i in cursor:
+    loc.append(i[0])
+sched=[]
+sql = "select r.route_name , t.train_name, s.station_name , Date , EAT , EDT from train_schedule ts, routes r, trains t , stations s where ts.train_no = t.train_no  and r.route_no=ts.route_no and ts.station_code = s.station_code; "
+cursor.execute('use Intercity_project;')
+cursor.execute(sql);
+for i in cursor:
+    sched.append(list(i))
+data={'isUser':0,'loc':loc,'sched':sched}
 cursor=None
 def root():
     global cursor
     mydb=db.connect(host='localhost',user='admin',password='6062')
     cursor=mydb.cursor()
+
 def index(request):
     global curr_user
     uname = request.POST.get('uname',None)
@@ -29,7 +42,6 @@ def index(request):
     else:
         messages.error(request,'you need to log in!')
         return render(request,'index.html',data)
-
 
 def login(request):
     global cursor
@@ -69,3 +81,5 @@ def logout(request):
 
 def home(request):
     return render(request,'homepage.html',data)
+def schedule(request):
+    return render(request,'schedule.html',data)

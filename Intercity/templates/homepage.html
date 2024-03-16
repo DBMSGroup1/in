@@ -43,19 +43,12 @@
     </style>
 </head>
 <body>
-    <!-- <div class="logo">
-        <img src="logo_new.jpeg" alt="Logo" width="150">
-        <a href="/html/default.asp" title="Ticket Booking">Book Ticket</a>
-            <a href="/css/default.asp" title="Train Schedule">Train Schedule</a>
-            <a href="/js/default.asp" title="Ticket Cancellation">Ticket Cancellation</a>
-    </div> -->
     <div class="main-container">
-        <!-- <h2 style="text-align:center; color: black;">INTERCITY</h2> -->
         <div class="logo"><img src="logo_new.jpeg" alt="Logo" width="150"></div>
         <div class="navbar">
             <img src="logo_new.jpeg" alt="Logo" width="150">
             <a href="/html/default.asp" title="Ticket Booking">Book Ticket</a>
-            <a href="/css/default.asp" title="Train Schedule">Train Schedule</a>
+            <a href="schedule" title="Train Schedule">Train Schedule</a>
             <a href="/js/default.asp" title="Ticket Cancellation">Ticket Cancellation</a>
         </div>
 
@@ -65,7 +58,6 @@
                     <h3 class="text-center bg-primary" style="padding: 7px; border-radius: 5px; ">
                         Book Ticket
                     </h3>
-                    <!-- <label for="name" class="form-label">Name:</label><br> -->
                   <div class="dropdown">
                     <label for="start">Starting Station</label>
                     <select name="start">
@@ -73,8 +65,8 @@
                     <option value={{ x }}>{{ x }}</option>      
                     {% endfor %}
                     </select>
-
-                    <label for="last">Starting Station</label>
+                    <br>
+                    <label for="last">Destination</label>
                     <select name="last" id="laststation">
                     {% for x in loc  %}
                     <option value={{ x }}>{{ x }}</option>      
