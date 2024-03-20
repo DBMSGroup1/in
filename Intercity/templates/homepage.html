@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+    {% load static %}
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Home-Page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'style.css' %}">
     <style>
         body {
-            background-image: url('train_image.png'); 
+          background-image: url({% static 'train_image.png' %}); 
             background-size: cover; 
             /* background-position: center; */
         }
@@ -44,10 +46,10 @@
 </head>
 <body>
     <div class="main-container">
-        <div class="logo"><img src="logo_new.jpeg" alt="Logo" width="150"></div>
+      <div class="logo"><img src="{% static 'logo_new.jpeg' %}" alt="Logo" width="150"></div>
         <div class="navbar">
-            <img src="logo_new.jpeg" alt="Logo" width="150">
-            <a href="/html/default.asp" title="Ticket Booking">Book Ticket</a>
+          <img src="{% static 'logo_new.jpeg'%}" alt="Logo" width="150">
+            <a href="/home" title="Ticket Booking">Book Ticket</a>
             <a href="schedule" title="Train Schedule">Train Schedule</a>
             <a href="/js/default.asp" title="Ticket Cancellation">Ticket Cancellation</a>
         </div>
@@ -86,12 +88,7 @@
                     <option value="child">Child</option>
                 </select>
                 </div><br>
-                
-
-                
                 <button type="submit" class="btn btn-primary">Search</button>
-                
-
               </form>
         </div>
     </div>

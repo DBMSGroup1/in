@@ -35,7 +35,7 @@ def index(request):
             curr_user=uname
             data['isUser']=1  
             messages.success(request,f"Your are Loged in as {curr_user}")  
-            return render(request,'index.html',data)
+            return render(request,'homepage.html',data)
         except:
             messages.error(request,'Wrong credentials!')
             return redirect(login)        
@@ -65,13 +65,13 @@ def login(request):
                 messages.error(request,err)
             return redirect(signup)
     if(name==None and uname==None and upass==None):
-        return render(request,'login.html')
+        return render(request,'login.html',data)
     else:
         messages.error(request,'All fields are compalsary')
         return redirect(signup)
 
 def signup(request): 
-    return render(request,'signup.html')
+    return render(request,'user_register.html')
 def logout(request):
     curr_user=None
     data['isUser']=0
