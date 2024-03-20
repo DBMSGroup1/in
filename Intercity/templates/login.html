@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>user_login</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'style.css' %}">
     <style>
-         body {
-            background-image: url('train_image.png'); 
+         body{
+           background-image: url("{% static 'train_image.png'%}"); 
             background-size: cover; 
             background-position: center;
         }
@@ -55,7 +56,7 @@
     </style>
 </head>
 <body>
-    <div class="logo"><img src="logo_new.jpeg" alt="Logo" width="150"></div>
+  <div class="logo"><img src='{% static "logo_new.jpeg"%}' alt="Logo" width="150"></div>
     <h3 style="text-align:center;">INTERCITY</h3>
     <div class="message text-center" style="padding: 7px; border: 7px; border-radius: 5px;" >
       {% for x in messages %} 
@@ -78,9 +79,9 @@
             </div>
             <button type="submit" class="btn btn-primary">login</button>
             <div class="mb-3">
-                <p>Don't have an account? <a href="signin">Register</a></p>
+                <p>Don't have an account? <a href="signup">Register</a></p>
                 
-              </div>
+              </div>      
 
           </form>
     </div>
