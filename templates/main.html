@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main_page</title>
+
+    <style>
+        body{
+          background-image: url("{%static 'station.png'%}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            backdrop-filter: blur(6px);
+            
+        }
+
+        .container{
+            padding:10px 50px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .styledButton{
+            background-image: linear-gradient(to right,  #1405f2, #21a8f6); 
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); 
+            border: none;
+            color: white;
+            padding: 25px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .styledButton:hover {
+            background-image: linear-gradient(to right,  #1407d1, #8fd0f5); 
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); 
+}
+
+        .container1{ 
+             margin: 10px;  
+           margin-left: 300px;
+            margin-top: 250px;
+            margin-bottom: 200px;
+             padding: 20px 70px; 
+            border: 1px solid #ccc; 
+            border-radius: 10px; 
+            background-color: rgb(27, 26, 26,0.5);
+            box-shadow: 0px 6px 10px rgba(77, 76, 76, 0.8); 
+         }
+            
+    </style>
+</head>
+<body>
+    <div class="logo"><img src="{%static 'logo_new.jpeg' %}" alt="Logo" width="150"></div>
+<div class="container1">
+    <h2 style="align-items: center; color: rgb(254, 254, 255); padding-left: 143px;">Choose your profile</h2>
+    <div class="container">
+       <a href="user_log"><button type="button" class="styledButton">User</button></a> 
+       <a href="agent_log"><button type="button" class="styledButton">Agent</button></a>
+       <a href="user_log"><button type="button" class="styledButton">Admin</button></a>
+    </div>
+</div>
+</body>
+</html>
