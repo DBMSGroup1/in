@@ -17,7 +17,7 @@
 
         .navbar {
             background-color: rgba(255, 255, 255, 0.7); /* Navbar background color */
-            color: white; /* Text color */
+            color: black; /* Text color */
             padding: 10px; /* Padding around the links */
             /* text-align: center;  */
         }
@@ -42,6 +42,9 @@
             padding: 8px;
             background-color: white;
         }
+        .uname{
+          text-align:right;
+        }
     </style>
 </head>
 <body>
@@ -51,11 +54,13 @@
           <img src="{% static 'logo_new.jpeg'%}" alt="Logo" width="150">
             <a href="/home" title="Ticket Booking">Book Ticket</a>
             <a href="schedule" title="Train Schedule">Train Schedule</a>
-            <a href="/js/default.asp" title="Ticket Cancellation">Ticket Cancellation</a>
+            <a href="home" title="Ticket Cancellation">Ticket Cancellation</a>
+            <b>Hellow {{uname}}</b>
+            <button><a href="logout" title="Logout">Logout</a></button>
         </div>
 
         <div class="container">
-            <form action="/action_page.php">
+            <form action="home">
                 <div class="mb-3 mt-3">
                     <h3 class="text-center bg-primary" style="padding: 7px; border-radius: 5px; ">
                         Book Ticket

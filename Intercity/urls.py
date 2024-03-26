@@ -20,11 +20,16 @@ from . import views
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
-	path('',views.index,name='index'),
+	path('user_log',views.user_log,name='index'),
 	path('index',views.index,name='index'),
-	path('login',views.login,name="login"),
-    path('signup',views.signup,name='signup'),
+	path('register',views.register,name="register"),
+	path('agent_log',views.agent_log,name="agent_login"),
+    path('user_reg',views.user_reg,name='user_reg'),
+    path('agent_reg',views.agent_reg,name='agen_reg'),
     path('logout',views.logout,name='logout'),
     path('home',views.home,name='home'),
     path('schedule',views.schedule,name='logout'),
+    path('login',views.login,name='login'),
+    path('',views.start,name='login'),
+    
 ]

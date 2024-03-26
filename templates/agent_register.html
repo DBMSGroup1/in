@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>agent_register</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{%static 'style.css'%}">
     <style>
          body {
-            background-image: url('train_image.png'); 
+            background-image: url("{% static 'train_image.png'%}"); 
             background-size: cover; 
             background-position: center;
         }
@@ -34,49 +35,58 @@
     </style>
 </head>
 <body>
-    <div class="logo"><img src="logo_new.jpeg" alt="Logo" width="150"></div>
+    <div class="logo"><img src="{% static 'logo_new.jpeg' %}" alt="Logo" width="150"></div>
     <h2 style="text-align:center; background-color:rgba(255, 255, 255, 0.7); ;">INTERCITY</h2>
     <div class="container">
-        <form action="/action_page.php">
+      <div class="message text-center" style="padding: 7px; border: 7px; border-radius: 5px;" >
+      {% for x in messages %} 
+        <strong>Messsage: </strong>{{ x }}
+      {% endfor %}
+    </div>
+        <form action="register" method="post">
+        {% csrf_token %} 
             <div class="mb-3 mt-3">
                 <h3 class="text-center bg-primary" style="padding: 7px; border-radius: 5px; ">
                     Agent-Register
                 </h3>
                     
-                    <label for="email" class="form-label">Name</label><br>
+                     <label for="name" class="form-label">Name</label><br>
                     <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name"><br>
+                  
+                    <label for="name" class="form-label">User_Name</label><br>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your User name" name="uname"><br>
                   
 
               <label for="email" class="form-label">Email</label><br>
-              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="mail">
             </div>
             <div class="mb-3">
               <label for="pwd" class="form-label">Password</label><br>
-              <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"><br>
+              <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pass"><br>
               <label for="pwd" class="form-label">Confirm Password</label><br>
-              <input type="password" class="form-control" id="pwd" placeholder="Re-enter password" name="pswd">
+              <input type="password" class="form-control" id="pwd" placeholder="Re-enter password" name="pass1">
             </div>
             <div class="mb-3 mt-3">
                 <!-- <h3 class="text-center bg-primary" style="padding: 7px; border-radius: 5px; ">
                     Agent-Register
                 </h3> -->
-              <label for="email" class="form-label">Address</label><br>
-              <input type="email" class="form-control" id="email" placeholder="Enter your address" name="address">
+              <label for="address" class="form-label">Address</label><br>
+              <input type="text" class="form-control" id="address" placeholder="Enter your address" name="address">
             </div>
 
             <div class="mb-3 mt-3">
-              <label for="email" class="form-label">Bank Account Number</label><br>
+              <label for="account_number" class="form-label">Bank Account Number</label><br>
               <input type="password" class="form-control" id="account_number" placeholder="Enter your account number" name="bank_account">
             </div>
 
             <div class="mb-3 mt-3">
                 
-              <label for="email" class="form-label">IFSC Code</label><br>
+              <label for="text" class="form-label">IFSC Code</label><br>
               <input type="text" class="form-control" id="IFSC" placeholder="Enter IFSC Code" name="IFSC">
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
             <div class="mb-3">
-                <p>Already have an account? <a href="agent_login.html">Login</a></p>
+                <p>Already have an account? <a href="agent_log">Login</a></p>
                 
               </div>
 
